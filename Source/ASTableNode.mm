@@ -163,6 +163,7 @@
     view.allowsMultipleSelection              = pendingState.allowsMultipleSelection;
     view.allowsMultipleSelectionDuringEditing = pendingState.allowsMultipleSelectionDuringEditing;
     view.automaticallyAdjustsContentOffset    = pendingState.automaticallyAdjustsContentOffset;
+    view.leadingScreensForBatching            = pendingState.leadingScreensForBatching;
 #if !TARGET_OS_TV
     view.pagingEnabled                        = pendingState.pagingEnabled;
 #endif
@@ -176,10 +177,6 @@
     if (!CGPointEqualToPoint(contentOffset, CGPointZero)) {
       [view setContentOffset:contentOffset animated:pendingState.animatesContentOffset];
     }
-
-     if (pendingState.leadingScreensForBatching != 0) {
-       view.leadingScreensForBatching = pendingState.leadingScreensForBatching;
-     }
       
     const auto tuningParametersVector = pendingState->_tuningParameters;
     const auto tuningParametersVectorSize = tuningParametersVector.size();

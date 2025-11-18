@@ -82,6 +82,7 @@
     _flags.inverted = NO;
     _contentInset = UIEdgeInsetsZero;
     _contentOffset = CGPointZero;
+    _leadingScreensForBatching = 2.0;
     _flags.animatesContentOffset = NO;
     _flags.showsVerticalScrollIndicator = YES;
     _flags.showsHorizontalScrollIndicator = YES;
@@ -323,6 +324,7 @@
     view.layoutInspector                = pendingState.layoutInspector;
     view.showsVerticalScrollIndicator   = pendingState.showsVerticalScrollIndicator;
     view.showsHorizontalScrollIndicator = pendingState.showsHorizontalScrollIndicator;
+    view.leadingScreensForBatching      = pendingState.leadingScreensForBatching;
 #if !TARGET_OS_TV
     view.pagingEnabled                  = pendingState.pagingEnabled;
 #endif
@@ -343,10 +345,6 @@
     CGPoint contentOffset = pendingState.contentOffset;
     if (!CGPointEqualToPoint(contentOffset, CGPointZero)) {
       [view setContentOffset:contentOffset animated:pendingState.animatesContentOffset];
-    }
-    
-    if (pendingState.leadingScreensForBatching != 0) {
-      view.leadingScreensForBatching = pendingState.leadingScreensForBatching;
     }
     
     const auto tuningParametersVector = pendingState->_tuningParameters;
