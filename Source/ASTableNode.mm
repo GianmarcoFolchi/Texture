@@ -176,6 +176,10 @@
     if (!CGPointEqualToPoint(contentOffset, CGPointZero)) {
       [view setContentOffset:contentOffset animated:pendingState.animatesContentOffset];
     }
+
+     if (pendingState.leadingScreensForBatching != 0) {
+       view.leadingScreensForBatching = pendingState.leadingScreensForBatching;
+     }
       
     const auto tuningParametersVector = pendingState->_tuningParameters;
     const auto tuningParametersVectorSize = tuningParametersVector.size();
