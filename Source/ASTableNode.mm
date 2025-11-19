@@ -178,6 +178,7 @@
       [view setContentOffset:contentOffset animated:pendingState.animatesContentOffset];
     }
       
+
     const auto tuningParametersVector = pendingState->_tuningParameters;
     const auto tuningParametersVectorSize = tuningParametersVector.size();
     for (NSInteger rangeMode = 0; rangeMode < tuningParametersVectorSize; rangeMode++) {
